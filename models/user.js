@@ -10,6 +10,11 @@ const schema = new Schema({
   },
   username: String,
   password: String,
+  games: [{
+    date: Date,
+    turns: Number,
+    solved: Boolean,
+  }],
 }, {
   collection: 'users',
   timestamps: true,

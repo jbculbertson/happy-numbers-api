@@ -3,7 +3,6 @@ const User = mongoose.model('user');
 
 module.exports = {
   post: (req, res) => {
-    console.log('login', req.body);
     const username = req.body.username;
     const enteredPassword = req.body.password;
 
@@ -16,7 +15,7 @@ module.exports = {
 
       const storedPassword = user.password;
       if (storedPassword === enteredPassword) {
-        return res.status(200).json({ token: 'abc' });
+        return res.status(200).json(user);
       } else {
         return res.status(403).send();
       }

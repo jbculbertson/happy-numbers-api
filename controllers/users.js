@@ -15,11 +15,11 @@ module.exports = {
   addScore: (req, res) => {
     const _id = req.body._id;
     const game = req.body.gameInfo;
-      User.findOneAndUpdate({ _id }, { push: { games: game } }, (updateErr, updateResult) => {
+
+      User.findOneAndUpdate({ _id }, { $push: { games: game } }, (updateErr, updateResult) => {
           if (updateErr) {
             return res.json(updateErr).status(500);
           }
-
           return res.json(updateResult).status(200);
         });
   },
