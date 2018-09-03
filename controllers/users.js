@@ -16,7 +16,7 @@ module.exports = {
     const _id = req.body._id;
     const game = req.body.gameInfo;
 
-      User.findOneAndUpdate({ _id }, { $push: { games: game } }, (updateErr, updateResult) => {
+      User.findOneAndUpdate({ _id }, { $push: { games: game } },{ new: true }, (updateErr, updateResult) => {
           if (updateErr) {
             return res.json(updateErr).status(500);
           }
